@@ -92,7 +92,7 @@ verificarLogin();
                 $selected = ($itens['id'] == $objMulta->locacao_id ? "selected" : "");
    
                 echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['placa'] . "</option>";
+                  $itens['retirada'] . "</option>";
             }
             ?>
         </select>

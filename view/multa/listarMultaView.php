@@ -77,7 +77,7 @@ $objUsuario = $_SESSION['usuario'];
     foreach ($result as $item) {
         $objCliente = $objClienteModel::find($item['cliente_id'],"cliente");
         $objVeiculo = $objVeiculoModel::find($item['veiculo_id'],"veiculo");
-        $objLocacao = $objLocacaoModel::find($item['locacao_id'],"locacao");
+        $objLocacao = $objLocacaoModel::find($item['locacao_id']);
         echo "
     <tr>
       <td>" . $item['id'] . "</td>
