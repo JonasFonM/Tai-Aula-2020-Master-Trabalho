@@ -51,6 +51,9 @@ verificarLogin();
         <label>E-mail</label>
         <input type="text" name="email"> <br>
 
+        <label>Data de Nascimento</label>
+        <input type="text" name="data_nasc"> <br>
+
         <label>Município</label>
         <select name="municipio_id">
             <?php

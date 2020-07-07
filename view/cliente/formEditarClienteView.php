@@ -60,6 +60,10 @@ verificarLogin();
         <label>E-mail</label>
         <!-- passo valor do atributo e-mail para a propriedade value -->
         <input type="text" name="email" value="<?php echo $objCliente->email; ?>"> <br>
+        
+        <label>Data de Nascimento</label>
+        <!-- passo valor do atributo e-mail para a propriedade value -->
+        <input type="text" name="data_nasc" value="<?php echo $objCliente->data_nasc; ?>"> <br>
 
         <label>Município</label>
         <select name="municipio_id">

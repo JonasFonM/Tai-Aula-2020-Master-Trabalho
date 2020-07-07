@@ -24,13 +24,9 @@ class ClienteController
         if (
             !empty($dados['nome']) && !empty($dados['telefone']) &&
             !empty($dados['cpf']) &&  !empty($dados['email']) &&
-            !empty($dados) && !empty($dados['municipio_id'])
+            !empty($dados['data_nasc']) && !empty($dados['municipio_id'])
         ) {
-            /*
-            $municipio_id = $dados['municipio_id'];
-            unset($dados['municipio_id']);
-            array_push($dados, ['municipio_id' => intval($municipio_id)]);
-*/
+            
             $this->model::insert($dados);
 
             echo "<script>alert('Registro inserido com sucesso!')</script>";
@@ -44,7 +40,7 @@ class ClienteController
         if (
             !empty($dados['nome']) && !empty($dados['telefone']) &&
             !empty($dados['cpf']) &&  !empty($dados['email']) &&
-            !empty($dados['municipio_id'])
+            !empty($dados['data_nasc']) && !empty($dados['municipio_id'])
         ) {
             $this->model::update($dados);
             echo "<script>alert('Registro alterado com sucesso!')</script>";
