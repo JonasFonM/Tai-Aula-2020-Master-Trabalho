@@ -10,6 +10,7 @@ include '../../model/ClienteModel.php';
 include '../../model/VeiculoModel.php';
 include '../../model/LocacaoModel.php';
 include '../../lib/util.php';
+include '../../lib/styles.php';
 
 session_start();
 
@@ -26,10 +27,12 @@ $objUsuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php estilizar(); ?>
     <title>Multas Registradas</title>
 </head>
 
 <body>
+    <div class = "container">
     <a href="../home/homeView.php">Sair</a>
     <h3>Olá <?php echo $objUsuario->nome ?></h3>
 
@@ -46,6 +49,7 @@ $objUsuario = $_SESSION['usuario'];
         </select>
         <input type="submit" value="Buscar">
     </form>
+    </div>
     <?php
 
     $objMultaController = new MultaController();
@@ -64,7 +68,7 @@ $objUsuario = $_SESSION['usuario'];
     $objLocacaoModel = new LocacaoModel();
     //monta uma tabela e lista os dados atraves do foreach
     echo "
-<table style=''>
+<table class = 'container'>
 <tr>
   <th>ID</th>
   <th>Valor da Multa</th>
@@ -77,7 +81,7 @@ $objUsuario = $_SESSION['usuario'];
     foreach ($result as $item) {
         $objCliente = $objClienteModel::find($item['cliente_id'],"cliente");
         $objVeiculo = $objVeiculoModel::find($item['veiculo_id'],"veiculo");
-        $objLocacao = $objLocacaoModel::find($item['locacao_id']);
+        $objLocacao = $objLocacaoModel::find($item['locacao_id'],"locacao");
         echo "
     <tr>
       <td>" . $item['id'] . "</td>

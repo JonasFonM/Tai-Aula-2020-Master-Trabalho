@@ -4,7 +4,7 @@ include '../../control/LocacaoController.php';
 include '../../model/ClienteModel.php';
 include '../../model/VeiculoModel.php';
 include '../../lib/util.php';
-
+include '../../lib/styles.php';
 session_start();
 
 verificarLogin();
@@ -17,6 +17,7 @@ verificarLogin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php estilizar(); ?>
     <title>Registre uma Locação</title>
 </head>
 
@@ -41,6 +42,7 @@ verificarLogin();
     <!-- propriedade action faz a chamada do BD.php para pegar o valor do form
         o restante e um formulario comum usando o metodo POST
     -->
+    <div class = "container-fluid">
     <form action="formLocacaoView.php" method="POST">
         <label>Data e hora da Retirada</label>
         <input type="text" name="retirada"> <br>
@@ -68,6 +70,7 @@ verificarLogin();
         <input type="submit" value="Enviar">
     </form>
     <a href="listarLocacaoView.php"><button>Voltar</button></a>
+    </div>
 </body>
 
 </html>

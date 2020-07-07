@@ -3,6 +3,7 @@
 //para que seus metodos fiquem visiveis
 include '../../model/ClienteModel.php';
 include '../../lib/util.php';
+include '../../lib/styles.php';
 
 session_start();
 
@@ -16,6 +17,7 @@ verificarLogin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php estilizar(); ?>
     <title>Deletar Cliente</title>
 </head>
 

@@ -1,5 +1,6 @@
 <?php
 include '../../model/Model.php';
+include '../../lib/styles.php';
 
 session_start();
 
@@ -12,6 +13,7 @@ $_SESSION['usuario'] = null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php estilizar(); ?>
     <title>Faça seu Login</title>
 </head>
 

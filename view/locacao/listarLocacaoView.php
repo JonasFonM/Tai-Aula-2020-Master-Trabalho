@@ -3,12 +3,12 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_erros', 1);
 error_reporting(E_ALL);
-// inclui o arquivo BD.php dentro deste arquivo 
-//para que seus metodos fiquem visiveis
+
 include '../../control/LocacaoController.php';
 include '../../model/ClienteModel.php';
 include '../../model/VeiculoModel.php';
 include '../../lib/util.php';
+include '../../lib/styles.php';
 
 session_start();
 
@@ -16,8 +16,7 @@ verificarLogin();
 
 $objUsuario = $_SESSION['usuario'];
 
-//var_dump( $objUsuario );
-//exit;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +24,7 @@ $objUsuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php estilizar(); ?>
     <title>Locações Registradas</title>
 </head>
 

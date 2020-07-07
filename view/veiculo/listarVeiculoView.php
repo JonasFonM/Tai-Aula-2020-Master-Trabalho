@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 include '../../control/VeiculoController.php';
 include '../../model/ClienteModel.php';
 include '../../lib/util.php';
+include '../../lib/styles.php';
 
 session_start();
 
@@ -24,6 +25,7 @@ $objUsuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php estilizar(); ?>
     <title>Veículos Cadastrados</title>
 </head>
 
