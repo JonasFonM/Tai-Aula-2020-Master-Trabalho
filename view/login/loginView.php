@@ -12,7 +12,7 @@ $_SESSION['usuario'] = null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faça seu Login</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@ $_SESSION['usuario'] = null;
         $objUsuario =  Model::logar($_POST["login"], $_POST['senha']);
         if (!empty($objUsuario)) {
             $_SESSION['usuario'] = $objUsuario;
-            header("Location: ../cliente/listarClienteView.php");
+            header("Location: ../veiculo/listarVeiculoView.php");
         } else {
             echo "<b style='color:red;'>Login ou Senha errado, tente novamente! </b>";
         }
