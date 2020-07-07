@@ -56,6 +56,7 @@ verificarLogin();
             }
             ?>
         </select>
+        <br>
         <label>Veículo</label>
         <select name="veiculo_id">
             <?php

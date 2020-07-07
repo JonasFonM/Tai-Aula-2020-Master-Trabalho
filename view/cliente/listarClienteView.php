@@ -24,11 +24,11 @@ $objUsuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clientes Cadastrados</title>
 </head>
 
 <body>
-    <a href="../login/loginView.php">Sair</a>
+    <a href="../home/homeView.php">Sair</a>
     <h3>Olá <?php echo $objUsuario->nome ?></h3>
     <!-- formulario com o botao para chamar o arquivo formCliente -->
     <form action="formClienteView.php" method="POST">

@@ -23,7 +23,7 @@ $_SESSION['usuario'] = null;
         $objUsuario =  Model::logar($_POST["login"], $_POST['senha']);
         if (!empty($objUsuario)) {
             $_SESSION['usuario'] = $objUsuario;
-            header("Location: ../locacao/listarLocacaoView.php");
+            header("Location: ../home/homeView.php");
         } else {
             echo "<b style='color:red;'>Login ou Senha errado, tente novamente! </b>";
         }

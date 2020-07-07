@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `municipio_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_cliente_municipio` (`municipio_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela db_tai_aula_2020.cliente: 8 rows
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
