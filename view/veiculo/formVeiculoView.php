@@ -42,7 +42,7 @@ verificarLogin();
         <label>Placa</label>
         <input type="text" name="placa"> <br>
 
-        <label>Tipo de Veiculo</label>
+        <label>Tipo de Veículo</label>
         <input type="text" name="tipo_veiculo"> <br>
 
         <label>Fabricante</label>

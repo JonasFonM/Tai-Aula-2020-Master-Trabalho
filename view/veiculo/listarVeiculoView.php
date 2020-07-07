@@ -24,7 +24,7 @@ $objUsuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veículos Cadastrados</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -64,7 +64,7 @@ $objUsuario = $_SESSION['usuario'];
   <th>Placa</th>
   <th>Modelo</th>
   <th>Fabricante</th>
-  <th>Proprietário</th>
+  <th>Cliente</th>
   <th>Ação</th>
 </tr>";
     foreach ($result as $item) {
