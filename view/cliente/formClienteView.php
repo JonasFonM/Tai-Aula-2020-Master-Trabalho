@@ -22,7 +22,11 @@ verificarLogin();
     <title>Cadastrar Cliente</title>
 </head>
 
-<body>
+<body class="container-fluid bg-dark">
+    <div class="container text-center bg-dark text-white">
+        <h1>Cadastre um novo Cliente<h1>
+</div>
+
     <?php
 
     $objClienteController = new ClienteController();
@@ -40,35 +44,56 @@ verificarLogin();
     <!-- propriedade action faz a chamada do BD.php para pegar o valor do form
         o restante e um formulario comum usando o metodo POST
     -->
+    <div class="container text-white bg-dark">
     <form action="formClienteView.php" method="POST">
-        <label>Nome</label>
-        <input type="text" name="nome"> <br>
+        
+        <div class="form-group">
+            <label>Nome</label>
+            <input class="form-control" type="text" name="nome" > 
+        </div>
 
-        <label>CPF</label>
-        <input type="text" name="cpf"> <br>
+        <div class="form-group">
+            <label>CPF</label>
+            <input class="form-control" type="text" name="cpf"> 
+        </div>
 
-        <label>Telefone</label>
-        <input type="text" name="telefone"> <br>
+        <div class="form-group">
+            <label>Telefone</label>
+            <input class="form-control" type="text" name="telefone"> 
+        </div>
 
-        <label>E-mail</label>
-        <input type="text" name="email"> <br>
+        <div class="form-group">
+            <label>E-mail</label>
+            <input class="form-control" type="text" name="email"> 
+        </div>
 
-        <label>Data de Nascimento</label>
-        <input type="text" name="data_nasc"> <br>
+        <div class="form-group">
+            <label>Data de Nascimento</label>
+            <input class="form-control" type="text" name="data_nasc" placeholder="AAAA-MM-DD"> 
+        </div>
 
-        <label>Município</label>
-        <select name="municipio_id">
-            <?php
-            //listagem dos municipios
-            foreach ($resultMunicipios as $itens) {
-                echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
+        <div class="form-group">
+            <label>Município</label>
+            <select class="form-control" name="municipio_id">
+                <?php
+           
+                foreach ($resultMunicipios as $itens) {
+                    echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+
         <br>
-        <input type="submit" value="Enviar">
+
+        <input type="submit" class="btn btn-success btn-block" value="Enviar">
+
     </form>
-    <a href="listarClienteView.php"><button>Voltar</button></a>
+        <br>
+        <a href="listarClienteView.php"><button type="submit" class="btn btn-primary btn-block">Voltar</button></a>
+        <br>
+</div>
+    
 </body>
 
 </html>

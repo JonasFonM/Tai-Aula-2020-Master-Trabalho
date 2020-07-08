@@ -29,8 +29,9 @@ $objUsuario = $_SESSION['usuario'];
     <title>Clientes Cadastrados</title>
 </head>
 
-<body>
-    <a href="../home/homeView.php">Sair</a>
+<body class="container-fluid bg-dark">
+    <div class="container-fluid bg-dark text-white">
+    <a class="btn btn-danger float-right" href="../home/homeView.php">Sair</a>
     <h3>Olá <?php echo $objUsuario->nome ?></h3>
     <!-- formulario com o botao para chamar o arquivo formCliente -->
     <form action="formClienteView.php" method="POST">
@@ -46,6 +47,7 @@ $objUsuario = $_SESSION['usuario'];
         </select>
         <input type="submit" value="Buscar">
     </form>
+    </div>
     <?php
 
     $objClienteController = new ClienteController();
@@ -60,7 +62,8 @@ $objUsuario = $_SESSION['usuario'];
     $objMunicipioModel = new MunicipioModel();
     //monta uma tabela e lista os dados atraves do foreach
     echo "
-<table style=''>
+<div class='container-fluid bg-dark'>
+<table class='table text-white'>
 <tr>
   <th>ID</th>
   <th>Nome</th>
@@ -81,6 +84,7 @@ $objUsuario = $_SESSION['usuario'];
       <td><a href='formEditarClienteView.php?id=" . $item['id'] . "'>Editar</a></td>
       <td><a href='formDeletarClienteView.php?id=" . $item['id'] . "'>Deletar</a></td>
     </tr>
+    </div>
     ";
         //a ultima linha foi criado um link para passar o parameto do id para a pagina formEditarCliente
     }

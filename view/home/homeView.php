@@ -12,14 +12,14 @@ include '../../lib/styles.php';
 </head>
 
 <body>
+  <div class = "row p-3 my-10 bg-dark text-white">
 
-      <td><a href='../cliente/listarClienteView.php' >Cliente</a></td>
-      <td><a href='../veiculo/listarVeiculoView.php' >Veiculo</a></td>
-      <td><a href='../locacao/listarLocacaoView.php' >Locacao</a></td>
-      <td><a href='../multa/listarMultaView.php' >Multa</a></td>
-    </tr>
+  <div class="col"><h1><a href='../cliente/listarClienteView.php' >Cliente</a><h1></div>
+  <div class="col"><h1><a href='../veiculo/listarVeiculoView.php' >Veículo</a><h1></div>
+  <div class="col"><h1><a href='../multa/listarMultaView.php' >Multa</a><h1></div>
+  <div class="col"><h1><a href='../locacao/listarLocacaoView.php' >Locação</a><h1></div>
 
-
+  </div>
 </body>
 
 </html>

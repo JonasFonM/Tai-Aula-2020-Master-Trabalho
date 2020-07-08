@@ -21,33 +21,29 @@ verificarLogin();
     <title>Deletar Cliente</title>
 </head>
 
-<body>
+<body class="container-fluid bg-dark">
     <?php
 
-    //cria um instancia do objeto BD
     $objModel = new Model();
-    //Faz a chamada do metodo Connection para conecta com o Banco de Dados
     $objModel->connection();
 
     if (!empty($_POST['confirmar'])) {
-        //chama o metodo DELETAR recebendo os dados do usuário através do metodo $_POST
         $objModel->deletar($_GET['id'],"cliente");
-        //metodo header faz uma chamada para a tela de listagem
-        //depois que realizou a adicao
         header("Location: listarClienteView.php");
     }
     ?>
-    <!-- propriedade action faz a chamada do BD.php para pegar o valor do form
-        o restante e um formulario comum usando o metodo POST
-    -->
+<div class="container text-center text-white bg-dark">
     <form action="formDeletarClienteView.php?id=<?php echo $_GET['id']; ?>" method="POST">
-        <label>Deseja Deletar o Registro?</label>
+
+        <label><h1>Deseja Deletar o Registro?</h1></label>
         <input type="hidden" name="confirmar" value="ok" /> <br>
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
-
-        <input type="submit" value="Deletar">
+        <h3> <input class="btn btn-danger btn-block" type="submit" value="Deletar"> </h3>
+        
     </form>
-    <a href="listarClienteView.php"><button>Cancelar</button></a>
+    <a href="listarClienteView.php"><button class="btn btn-primary btn-block">Cancelar</button></a> 
+</div>
+
 </body>
 
 </html>

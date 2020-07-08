@@ -28,7 +28,7 @@ $objUsuario = $_SESSION['usuario'];
     <title>Locações Registradas</title>
 </head>
 
-<body>
+<body class="bg-dark text-white">
     <a href="../home/homeView.php">Sair</a>
     <h3>Olá <?php echo $objUsuario->nome ?></h3>
 
@@ -61,14 +61,15 @@ $objUsuario = $_SESSION['usuario'];
     $objVeiculoModel = new VeiculoModel();
     //monta uma tabela e lista os dados atraves do foreach
     echo "
-<table style=''>
+<table class='table text-white'>
 <tr>
   <th>ID</th>
   <th>Retirada</th>
   <th>Devolução</th>
   <th>Cliente</th>
   <th>Veículo</th>
-  <th>Ação</th>
+  <th>Editar</th>
+  <th>Deletar</th>
 </tr>";
     foreach ($result as $item) {
         $objCliente = $objClienteModel::find($item['cliente_id'],"cliente");
@@ -82,7 +83,8 @@ $objUsuario = $_SESSION['usuario'];
       <td>" . $objVeiculo->placa . "</td>
       <td><a href='formEditarLocacaoView.php?id=" . $item['id'] . "'>Editar</a></td>
       <td><a href='formDeletarLocacaoView.php?id=" . $item['id'] . "'>Deletar</a></td>
-    </tr>
+    
+      </tr>
     ";
 
     }
