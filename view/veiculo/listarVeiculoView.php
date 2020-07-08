@@ -3,8 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_erros', 1);
 error_reporting(E_ALL);
-// inclui o arquivo BD.php dentro deste arquivo 
-//para que seus metodos fiquem visiveis
+
 include '../../control/VeiculoController.php';
 include '../../model/ClienteModel.php';
 include '../../lib/util.php';
@@ -16,8 +15,7 @@ verificarLogin();
 
 $objUsuario = $_SESSION['usuario'];
 
-//var_dump( $objUsuario );
-//exit;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,23 +27,38 @@ $objUsuario = $_SESSION['usuario'];
     <title>Veículos Cadastrados</title>
 </head>
 
-<body>
-    <a href="../home/homeView.php">Sair</a>
-    <h3>Olá <?php echo $objUsuario->nome ?></h3>
+<body class="container-fluid bg-dark">
+    <a class="btn btn-danger float-right" href="../home/homeView.php">Sair</a>
+    <div class="container bg-dark text-white">
 
+    
+    <h3 class="text-center">Olá <?php echo $objUsuario->nome ?></h3>
+
+    <br>
     <form action="formVeiculoView.php" method="POST">
-        <label>Cadastrar Veículo: </label>
-        <input type="submit" value="Novo">
+        <input class="btn-sm btn-success btn-block" type="submit" value="Cadastrar Veículo">
     </form>
+    <br>
+
     <form action="listarVeiculoView.php" method="POST">
-        <label>Buscar: </label>
-        <input type="text" name="valor" />
-        <select name="tipo">
-            <option value="placa">Placa</option>
-            <option value="tipo_veiculo">Tipo de Veículo</option>
-        </select>
-        <input type="submit" value="Buscar">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Procurar: </span>
+            </div>  
+
+                <input class="form-control" type="text" name="valor" />
+            <div class="input-group-append">
+                <select class="form-control" name="tipo">
+                    <option value="placa">Placa</option>
+                    <option value="tipo_veiculo">Tipo de Veículo</option>
+                </select>
+            
+                <input class="btn btn-light" type="submit" value="Buscar">
+                </div>
+        </div>
     </form>
+    </div>
+    <br>
     <?php
 
     $objVeiculoController = new VeiculoController();
@@ -60,14 +73,16 @@ $objUsuario = $_SESSION['usuario'];
     $objClienteModel = new ClienteModel();
     //monta uma tabela e lista os dados atraves do foreach
     echo "
-<table style=''>
+<div class='container bg-dark'>    
+<table class='table text-white'>
 <tr>
   <th>ID</th>
   <th>Placa</th>
   <th>Modelo</th>
   <th>Fabricante</th>
   <th>Cliente</th>
-  <th>Ação</th>
+  <th>Editar</th>
+  <th>Deletar</th>
 </tr>";
     foreach ($result as $item) {
         $objCliente = $objClienteModel::find($item['cliente_id']);
@@ -78,9 +93,10 @@ $objUsuario = $_SESSION['usuario'];
       <td>" . $item['modelo'] . "</td>
       <td>" . $item['fabricante'] . "</td>
       <td>" . $objCliente->nome  . "</td>
-      <td><a href='formEditarVeiculoView.php?id=" . $item['id'] . "'>Editar</a></td>
-      <td><a href='formDeletarVeiculoView.php?id=" . $item['id'] . "'>Deletar</a></td>
+      <td><a class='btn-sm btn-light btn-block' href='formEditarVeiculoView.php?id=" . $item['id'] . "'>Editar</a></td>
+      <td><a class='btn-sm btn-danger btn-block' href='formDeletarVeiculoView.php?id=" . $item['id'] . "'>Deletar</a></td>
     </tr>
+    </div>
     ";
 
     }

@@ -3,8 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_erros', 1);
 error_reporting(E_ALL);
-// inclui o arquivo BD.php dentro deste arquivo 
-//para que seus metodos fiquem visiveis
+
 include '../../control/ClienteController.php';
 include '../../model/MunicipioModel.php';
 include '../../lib/util.php';
@@ -15,10 +14,8 @@ session_start();
 verificarLogin();
 
 $objUsuario = $_SESSION['usuario'];
-
-//var_dump( $objUsuario );
-//exit;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,24 +27,37 @@ $objUsuario = $_SESSION['usuario'];
 </head>
 
 <body class="container-fluid bg-dark">
-    <div class="container-fluid bg-dark text-white">
     <a class="btn btn-danger float-right" href="../home/homeView.php">Sair</a>
-    <h3>Olá <?php echo $objUsuario->nome ?></h3>
-    <!-- formulario com o botao para chamar o arquivo formCliente -->
+    <div class="container bg-dark text-white">
+    
+    <h3 class="text-center">Olá <?php echo $objUsuario->nome ?></h3>
+    
+    <br>
     <form action="formClienteView.php" method="POST">
-        <label>Cadastrar Cliente: </label>
-        <input type="submit" value="Novo">
+        <input class="btn-sm btn-success btn-block" type="submit" value="Cadastrar Cliente">
     </form>
+    <br>
+
     <form action="listarClienteView.php" method="POST">
-        <label>Buscar: </label>
-        <input type="text" name="valor" />
-        <select name="tipo">
-            <option value="nome">Nome</option>
-            <option value="cpf">CPF</option>
-        </select>
-        <input type="submit" value="Buscar">
+       
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Procurar: </span>
+            </div>  
+
+                <input class="form-control" type="text" name="valor" />
+            <div class="input-group-append">
+                <select class="form-control" name="tipo">
+                    <option value="nome">Nome</option>
+                    <option value="cpf">CPF</option>
+                </select>
+            
+                <input class="btn btn-light" type="submit" value="Buscar">
+                </div>
+        </div>
     </form>
     </div>
+    <br>
     <?php
 
     $objClienteController = new ClienteController();
@@ -55,14 +65,12 @@ $objUsuario = $_SESSION['usuario'];
     if (!empty($_POST['valor'])) {
         $result = $objClienteController->search($_POST);
     } else {
-        //Faz a chamada do metodo selectAll para conecta com o Banco de Dados
         $result = $objClienteController->index();
     }
     
     $objMunicipioModel = new MunicipioModel();
-    //monta uma tabela e lista os dados atraves do foreach
     echo "
-<div class='container-fluid bg-dark'>
+<div class='container bg-dark'>
 <table class='table text-white'>
 <tr>
   <th>ID</th>
@@ -70,7 +78,8 @@ $objUsuario = $_SESSION['usuario'];
   <th>CPF</th>
   <th>Município</th>
   <th>UF</th>
-  <th>Ação</th>
+  <th>Editar</th>
+  <th>Deletar</th>
 </tr>";
     foreach ($result as $item) {
         $objMunicipio = $objMunicipioModel::find($item['municipio_id']);
@@ -81,12 +90,11 @@ $objUsuario = $_SESSION['usuario'];
       <td>" . $item['cpf'] . "</td>
       <td>" . $objMunicipio->nome  . "</td>
       <td>" . $objMunicipio->uf  . "</td>
-      <td><a href='formEditarClienteView.php?id=" . $item['id'] . "'>Editar</a></td>
-      <td><a href='formDeletarClienteView.php?id=" . $item['id'] . "'>Deletar</a></td>
+      <td><a class='btn-sm btn-light btn-block' href='formEditarClienteView.php?id=" . $item['id'] . "'>Editar</a></td>
+      <td><a class='btn-sm btn-danger btn-block' href='formDeletarClienteView.php?id=" . $item['id'] . "'>Deletar</a></td>
     </tr>
     </div>
     ";
-        //a ultima linha foi criado um link para passar o parameto do id para a pagina formEditarCliente
     }
     echo "</table>";
 

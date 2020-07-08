@@ -28,23 +28,38 @@ $objUsuario = $_SESSION['usuario'];
     <title>Locações Registradas</title>
 </head>
 
-<body class="bg-dark text-white">
-    <a href="../home/homeView.php">Sair</a>
-    <h3>Olá <?php echo $objUsuario->nome ?></h3>
+<body class="container-fluid bg-dark text-white">
+    <a class="btn btn-danger float-right" href="../home/homeView.php">Sair</a>
+    <div class="container bg-dark text-white">
+    
+    <h3 class="text-center">Olá <?php echo $objUsuario->nome ?></h3>
 
+    <br>
     <form action="formLocacaoView.php" method="POST">
-        <label>Registrar Locação: </label>
-        <input type="submit" value="Novo">
+        <input class="btn-sm btn-success btn-block" type="submit" value="Registrar Locação">
     </form>
+    <br>
+
     <form action="listarLocacaoView.php" method="POST">
-        <label>Buscar: </label>
-        <input type="text" name="valor" />
-        <select name="tipo">
-            <option value="retirada">Retirada</option>
-            <option value="devolucao">Devolução</option>
-        </select>
-        <input type="submit" value="Buscar">
+        
+    <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Procurar: </span>
+            </div>  
+
+                <input class="form-control" type="text" name="valor" />
+            <div class="input-group-append">
+                <select class="form-control" name="tipo">
+                    <option value="data_retirada">Data de Retirada</option>
+                    <option value="data_devolucao">Data de Devolução</option>
+                </select>
+            
+                <input class="btn btn-light" type="submit" value="Buscar">
+                </div>
+        </div>
     </form>
+    </div>
+    <br>
     <?php
 
     $objLocacaoController = new LocacaoController();
@@ -61,11 +76,14 @@ $objUsuario = $_SESSION['usuario'];
     $objVeiculoModel = new VeiculoModel();
     //monta uma tabela e lista os dados atraves do foreach
     echo "
+<div class='container bg-dark'>
 <table class='table text-white'>
 <tr>
   <th>ID</th>
   <th>Retirada</th>
+  <th>Hora</th>
   <th>Devolução</th>
+  <th>Hora</th>
   <th>Cliente</th>
   <th>Veículo</th>
   <th>Editar</th>
@@ -77,14 +95,17 @@ $objUsuario = $_SESSION['usuario'];
         echo "
     <tr>
       <td>" . $item['id'] . "</td>
-      <td>" . $item['retirada'] . "</td>
-      <td>" . $item['devolucao'] . "</td>
+      <td>" . $item['data_retirada'] . "</td>
+      <td>" . $item['hora_retirada'] . "</td>
+      <td>" . $item['data_devolucao'] . "</td>
+      <td>" . $item['hora_devolucao'] . "</td>
       <td>" . $objCliente->nome . "</td>
       <td>" . $objVeiculo->placa . "</td>
-      <td><a href='formEditarLocacaoView.php?id=" . $item['id'] . "'>Editar</a></td>
-      <td><a href='formDeletarLocacaoView.php?id=" . $item['id'] . "'>Deletar</a></td>
+      <td><a class='btn-sm btn-light btn-block' href='formEditarLocacaoView.php?id=" . $item['id'] . "'>Editar</a></td>
+      <td><a class='btn-sm btn-danger btn-block' href='formDeletarLocacaoView.php?id=" . $item['id'] . "'>Deletar</a></td>
     
-      </tr>
+    </tr>
+    </div>
     ";
 
     }

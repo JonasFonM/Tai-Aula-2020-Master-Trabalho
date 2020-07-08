@@ -22,7 +22,13 @@ verificarLogin();
     <title>Cadastre um Veículo</title>
 </head>
 
-<body>
+<body class="container-fluid bg-dark">
+
+    <div class="container text-center bg-dark text-white">
+        <br>
+        <h1>Cadastre um novo Veiculo<h1>
+    </div>
+
     <?php
 
     $objVeiculoController = new VeiculoController();
@@ -40,31 +46,51 @@ verificarLogin();
     <!-- propriedade action faz a chamada do BD.php para pegar o valor do form
         o restante e um formulario comum usando o metodo POST
     -->
+    <div class="container text-white bg-dark">
+
     <form action="formVeiculoView.php" method="POST">
-        <label>Placa</label>
-        <input type="text" name="placa"> <br>
 
-        <label>Tipo de Veículo</label>
-        <input type="text" name="tipo_veiculo"> <br>
-
-        <label>Fabricante</label>
-        <input type="text" name="fabricante"> <br>
-
-        <label>Modelo</label>
-        <input type="text" name="modelo"> <br>
-
-        <label>Cliente</label>
-        <select name="cliente_id">
-            <?php
-            foreach ($resultClientes as $itens) {
+        <div class="form-group">
+           <label>Cliente</label>
+             <select class="form-control"s name="cliente_id">
+                <?php
+                foreach ($resultClientes as $itens) {
                 echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
+                }
+                ?>
+             </select>
+        </div>
+
+        <div class="form-group">
+           <label>Placa</label>
+           <input class="form-control" type="text" name="placa"> <br>
+        </div>
+
+        <div class="form-group">
+           <label>Tipo de Veículo</label>
+           <input class="form-control" type="text" name="tipo_veiculo"> <br>
+        </div>
+
+        <div class="form-group">
+           <label>Fabricante</label>
+           <input class="form-control" type="text" name="fabricante"> <br>
+        </div>
+
+        <div class="form-group">
+           <label>Modelo</label>
+           <input class="form-control" type="text" name="modelo"> <br>
+        </div>
+
         <br>
-        <input type="submit" value="Enviar">
-    </form>
-    <a href="listarVeiculoView.php"><button>Voltar</button></a>
+        <input type="submit" class="btn btn-success btn-block" value="Enviar">
+
+        </form>
+        <br>
+        <a href="listarVeiculoView.php"><button type="submit" class="btn btn-primary btn-block">Voltar</button></a>
+        <br>
+
+    </div>
+    
 </body>
 
 </html>

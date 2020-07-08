@@ -39,47 +39,48 @@ verificarLogin();
 
     ?>
 
-<div class="container text-white bg-dark my-10 p-10">
+<div class="container text-white bg-dark">
     <form action="formEditarClienteView.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
         <div class="form-group">
-        <label>Nome</label>
-        <input class="form-control" type="text" name="nome" value="<?php echo $objCliente->nome; ?>"> <br>
+            <label>Nome</label>
+            <input class="form-control" type="text" name="nome" value="<?php echo $objCliente->nome; ?>"> <br>
         </div>
 
         <div class="form-group">
-        <label>CPF</label>
-        <input class="form-control" type="text" name="cpf" value="<?php echo $objCliente->cpf; ?>"> <br>
+            <label>CPF</label>
+            <input class="form-control" type="text" name="cpf" value="<?php echo $objCliente->cpf; ?>"> <br>
         </div>
 
         <div class="form-group">
-        <label>Telefone</label>
-        <input class="form-control" type="text" name="telefone" value="<?php echo $objCliente->telefone; ?>"> <br>
+            <label>Telefone</label>
+            <input class="form-control" type="text" name="telefone" value="<?php echo $objCliente->telefone; ?>"> <br>
         </div>
 
         <div class="form-group">
-        <label>E-mail</label>
-        <input class="form-control" type="text" name="email" value="<?php echo $objCliente->email; ?>"> <br>
+            <label>E-mail</label>
+            <input class="form-control" type="text" name="email" value="<?php echo $objCliente->email; ?>"> <br>
         </div>
 
         <div class="form-group">
-        <label>Data de Nascimento</label>
-        <input class="form-control" type="text" name="data_nasc" value="<?php echo $objCliente->data_nasc; ?>"> <br>
+            <label>Data de Nascimento</label>
+            <input class="form-control" type="text" name="data_nasc" value="<?php echo $objCliente->data_nasc; ?>"> <br>
         </div>
 
         <div class="form-group">
-        <label>Município</label>
-        <select class="form-control" name="municipio_id">
-            <?php
-            foreach ($resultMunicipio as $itens) {
-                $selected = ($itens['id'] == $objCliente->municipio_id ? "selected" : "");
-                echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
+            <label>Município</label>
+            <select class="form-control" name="municipio_id">
+                <?php
+                foreach ($resultMunicipio as $itens) {
+                    $selected = ($itens['id'] == $objCliente->municipio_id ? "selected" : "");
+                    echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
+                    $itens['nome'] . "</option>";
+                }   
+                ?>
+            </select>
         </div>
+        <br>
  
         <input class="btn btn-success btn-block" type="submit" value="Editar">
     </form>

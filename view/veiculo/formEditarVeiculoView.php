@@ -1,5 +1,4 @@
 <?php
-
 include '../../model/VeiculoModel.php';
 include '../../lib/util.php';
 include '../../lib/styles.php';
@@ -19,7 +18,10 @@ verificarLogin();
     <title>Editar Veículo</title>
 </head>
 
-<body>
+<body class="container bg-dark">
+    <div class="container bg-dark text-white">
+        <h1>Edite o Veículo<h1>
+    </div>
     <?php
 
    
@@ -40,45 +42,52 @@ verificarLogin();
 
     ?>
 
+<div class="container text-white bg-dark">
     <form action="formEditarVeiculoView.php" method="POST">
- 
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
-        <label>Placa</label>
-   
-        <input type="text" name="placa" value="<?php echo $objVeiculo->placa; ?>"> <br>
+        <div class="form-group">
+            <label>Placa</label>
+            <input class="form-control" type="text" name="placa" value="<?php echo $objVeiculo->placa; ?>"> 
+        </div>
 
-        <label>Tipo de Veículo</label>
-      
-        <input type="text" name="tipo_veiculo" value="<?php echo $objVeiculo->tipo_veiculo; ?>"> <br>
+        <div class="form-group">
+            <label>Tipo de Veículo</label>
+            <input class="form-control" type="text" name="tipo_veiculo" value="<?php echo $objVeiculo->tipo_veiculo; ?>"> 
+        </div>
 
-        <label>Fabricante</label>
-    
-        <input type="text" name="fabricante" value="<?php echo $objVeiculo->fabricante; ?>"> <br>
 
-        <label>Modelo</label>
+        <div class="form-group">
+            <label>Fabricante</label>
+            <input class="form-control" type="text" name="fabricante" value="<?php echo $objVeiculo->fabricante; ?>"> 
+        </div>
 
-        <input type="text" name="modelo" value="<?php echo $objVeiculo->modelo; ?>"> <br>
-        
-    
-        <label>Cliente</label>
-        <select name="cliente_id">
-            <?php
-  
-            foreach ($resultCliente as $itens) {
- 
-                $selected = ($itens['id'] == $objVeiculo->cliente_id ? "selected" : "");
-   
-                echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
+        <div class="form-group">
+            <label>Modelo</label>
+            <input class="form-control" type="text" name="modelo" value="<?php echo $objVeiculo->modelo; ?>"> 
+        </div>
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <select class="form-control" name="cliente_id">
+                <?php
+                foreach ($resultCliente as $itens) {
+                    $selected = ($itens['id'] == $objVeiculo->cliente_id ? "selected" : "");
+                    echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
+                    $itens['nome'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
         <br>
 
-        <input type="submit" value="Editar">
-        <a href="listarVeiculoView.php"><button>Voltar</button></a>
+        <input class="btn btn-success btn-block" type="submit" value="Editar">
     </form>
+        <br>
+        <a href="listarVeiculoView.php"><button class="btn btn-primary btn-block">Voltar</button></a>
+        <br>
+</div>
+
 </body>
 
 </html>

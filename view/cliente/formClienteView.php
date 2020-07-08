@@ -74,14 +74,13 @@ verificarLogin();
 
         <div class="form-group">
             <label>Município</label>
-            <select class="form-control" name="municipio_id">
-                <?php
-           
-                foreach ($resultMunicipios as $itens) {
-                    echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
-                }
-                ?>
-            </select>
+                <select class="form-control" name="municipio_id">
+                    <?php
+                    foreach ($resultMunicipios as $itens) {
+                        echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
+                    }
+                    ?>
+                </select>
         </div>
 
         <br>
@@ -90,7 +89,7 @@ verificarLogin();
 
     </form>
         <br>
-        <a href="listarClienteView.php"><button type="submit" class="btn btn-primary btn-block">Voltar</button></a>
+        <a href="listarClienteView.php"><button class="btn btn-primary btn-block">Voltar</button></a>
         <br>
 </div>
     

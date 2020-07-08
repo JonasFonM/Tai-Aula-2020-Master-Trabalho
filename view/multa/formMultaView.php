@@ -23,7 +23,10 @@ verificarLogin();
     <title>Registre uma Multa</title>
 </head>
 
-<body>
+<body class="container-fluid bg-dark">
+    <div class="container text-center bg-dark text-white">
+        <h1>Registre uma nova Multa<h1>
+</div>
     <?php
 
     $objMultaController = new MultaController();
@@ -47,44 +50,66 @@ verificarLogin();
     <!-- propriedade action faz a chamada do BD.php para pegar o valor do form
         o restante e um formulario comum usando o metodo POST
     -->
+<div class="container text-white bg-dark">
     <form action="formMultaView.php" method="POST">
-        <label>Valor da Multa</label>
-        <input type="text" name="valor"> <br>
+       
+        <div class="form-group">
+            <label>Valor da Multa</label>
+            <input class="form-control" type="text" name="valor"> 
+        </div>
 
-        <label>Data e hora da Multa</label>
-        <input type="text" name="data_hora_multa"> <br>
+        <div class="form-group">
+            <label>Data da Multa</label>
+            <input class="form-control" type="date" name="data_multa"> 
+        </div>
 
-        <label>Cliente</label>
-        <select name="cliente_id">
-            <?php
-            foreach ($resultClientes as $itens) {
-                echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
-        <br>
+        <div class="form-group">
+            <label>Hora da Multa</label>
+            <input class="form-control" type="time" name="hora_multa"> 
+        </div>
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <select class="form-control" name="cliente_id">
+                <?php
+                foreach ($resultClientes as $itens) {
+                    echo "<option value='" . $itens['id'] . "'>" . $itens['nome'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
         
-        <label>Veículo</label>
-        <select name="veiculo_id">
-            <?php
-            foreach ($resultVeiculos as $itens) {
-                echo "<option value='" . $itens['id'] . "'>" . $itens['placa'] . "</option>";
-            }
-            ?>
-        </select>
+        <div class="form-group">
+            <label>Veículo</label>
+            <select class="form-control" name="veiculo_id">
+                <?php
+                foreach ($resultVeiculos as $itens) {
+                    echo "<option value='" . $itens['id'] . "'>" . $itens['placa'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Locacao</label>
+            <select class="form-control" name="locacao_id">
+                <?php
+                foreach ($resultLocacoes as $itens) {
+                    echo "<option value='" . $itens['id'] . "'>" . $itens['data_retirada'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+
         <br>
-        <label>Locacao</label>
-        <select name="locacao_id">
-            <?php
-            foreach ($resultLocacoes as $itens) {
-                echo "<option value='" . $itens['id'] . "'>" . $itens['retirada'] . "</option>";
-            }
-            ?>
-        </select>
-        <br>
-        <input type="submit" value="Enviar">
+
+        <input class="btn btn-success btn-block" type="submit" value="Enviar">
     </form>
-    <a href="listarMultaView.php"><button>Voltar</button></a>
+        <br>
+        <a href="listarMultaView.php"><button class="btn btn-primary btn-block">Voltar</button></a>
+        <br>
+</div>
+
 </body>
 
 </html>

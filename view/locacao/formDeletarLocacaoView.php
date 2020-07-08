@@ -20,7 +20,7 @@ verificarLogin();
     <title>Deletar Locação</title>
 </head>
 
-<body>
+<body class="container-fluid bg-dark">
     <?php
 
 
@@ -36,14 +36,18 @@ verificarLogin();
     }
     ?>
 
+<div class="container text-center text-white bg-dark">
     <form action="formDeletarLocacaoView.php?id=<?php echo $_GET['id']; ?>" method="POST">
-        <label>Deseja Deletar o Registro?</label>
+
+        <label><h1>Deseja Deletar o Registro?</h1></label>
         <input type="hidden" name="confirmar" value="ok" /> <br>
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
-
-        <input type="submit" value="Deletar">
+        <h3> <input class="btn btn-danger btn-block" type="submit" value="Deletar"> </h3>
+        
     </form>
-    <a href="listarLocacaoView.php"><button>Cancelar</button></a>
+    <a href="listarLocacaoView.php"><button class="btn btn-primary btn-block">Cancelar</button></a> 
+</div>
+
 </body>
 
 </html>

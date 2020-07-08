@@ -19,7 +19,10 @@ verificarLogin();
     <title>Editar Multa</title>
 </head>
 
-<body>
+<body class="container bg-dark">
+    <div class="container bg-dark text-white">
+        <h1>Edite a Multa<h1>
+    </div>
     <?php
 
    
@@ -42,68 +45,71 @@ verificarLogin();
 
 
     ?>
-
+<div class="container text-white bg-dark">
     <form action="formEditarMultaView.php" method="POST">
- 
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
-        <label>Valor da Multa</label>
-   
-        <input type="text" name="valor" value="<?php echo $objMulta->valor; ?>"> <br>
+        <div class="form-group">
+            <label>Valor da Multa</label>
+            <input class="form-control" type="text" name="valor" value="<?php echo $objMulta->valor; ?>"> 
+        </div>
 
-        <label>Data e hora da Multa</label>
-      
-        <input type="text" name="data_hora_multa" value="<?php echo $objMulta->data_hora_multa; ?>"> <br>
+        <div class="form-group">
+            <label>Data da Multa</label>      
+            <input class="form-control" type="date" name="data_multa" value="<?php echo $objMulta->data_multa; ?>"> 
+        </div>
 
-        <label>Cliente</label>
-        <select name="cliente_id">
-            <?php
-  
-            foreach ($resultCliente as $itens) {
- 
-                $selected = ($itens['id'] == $objMulta->cliente_id ? "selected" : "");
-   
-                echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['nome'] . "</option>";
-            }
-            ?>
-        </select>
-        <br>
+        <div class="form-group">
+            <label>Hora da Multa</label>      
+            <input class="form-control" type="time" name="hora_multa" value="<?php echo $objMulta->hora_multa; ?>"> 
+        </div>
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <select class="form-control" name="cliente_id">
+                <?php
+                foreach ($resultCliente as $itens) {
+                    $selected = ($itens['id'] == $objMulta->cliente_id ? "selected" : "");
+                    echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
+                    $itens['nome'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
         
-        <label>Veículo</label>
-        <select name="veiculo_id">
-            <?php
-  
-            foreach ($resultVeiculo as $itens) {
- 
-                $selected = ($itens['id'] == $objMulta->veiculo_id ? "selected" : "");
-   
-                echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['placa'] . "</option>";
-            }
-            ?>
-        </select>
+        <div class="form-group">
+            <label>Veículo</label>
+            <select class="form-control" name="veiculo_id">
+                <?php
+                foreach ($resultVeiculo as $itens) {
+                    $selected = ($itens['id'] == $objMulta->veiculo_id ? "selected" : "");
+                    echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
+                    $itens['placa'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Locação</label>
+            <select class="form-control" name="locacao_id">
+                <?php
+                foreach ($resultLocacao as $itens) {
+                    $selected = ($itens['id'] == $objMulta->locacao_id ? "selected" : "");
+                    echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
+                    $itens['data_retirada'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
         <br>
 
-        <label>Locação</label>
-        <select name="locacao_id">
-            <?php
-  
-            foreach ($resultVeiculo as $itens) {
- 
-                $selected = ($itens['id'] == $objMulta->locacao_id ? "selected" : "");
-   
-                echo "<option value='" . $itens['id'] . "' " . $selected . " >" .
-                  $itens['retirada'] . "</option>";
-            }
-            ?>
-        </select>
-        <br>
-
-
-        <input type="submit" value="Editar">
-        <a href="listarMultaView.php"><button>Voltar</button></a>
+        <input class="btn btn-success btn-block" type="submit" value="Editar">
+        
     </form>
+        <br>
+        <a href="listarMultaView.php"><button class="btn btn-primary btn-block">Voltar</button></a>
+        <br>
 </body>
 
 </html>
