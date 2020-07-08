@@ -24,7 +24,7 @@ class MultaController
         if (
             !empty($dados['cliente_id']) && !empty($dados['veiculo_id']) &&
             !empty($dados['locacao_id']) &&  !empty($dados['valor']) &&
-            !empty($dados['data_hora_multa'])
+            !empty($dados['data_multa']) && !empty($dados['hora_multa'])
         ) {
             
             $this->model::insert($dados);
@@ -40,7 +40,7 @@ class MultaController
         if (
             !empty($dados['cliente_id']) && !empty($dados['veiculo_id']) &&
             !empty($dados['locacao_id']) &&  !empty($dados['valor']) &&
-            !empty($dados['data_hora_multa'])
+            !empty($dados['data_multa']) && !empty($dados['hora_multa'])
         ) {
             $this->model::update($dados);
             echo "<script>alert('Registro alterado com sucesso!')</script>";

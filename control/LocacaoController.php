@@ -23,7 +23,8 @@ class LocacaoController
 
         if (
             !empty($dados['cliente_id']) && !empty($dados['veiculo_id']) &&
-            !empty($dados['retirada']) &&  !empty($dados['devolucao'])
+            !empty($dados['data_retirada']) && !empty($dados['hora_retirada']) && 
+            !empty($dados['data_devolucao']) && !empty($dados['hora_devolucao']) 
         ) {
             
             $this->model::insert($dados);
@@ -38,7 +39,8 @@ class LocacaoController
     {
         if (
             !empty($dados['cliente_id']) && !empty($dados['veiculo_id']) &&
-            !empty($dados['retirada']) &&  !empty($dados['devolucao'])
+            !empty($dados['data_retirada']) &&  !empty($dados['hora_retirada']) && 
+            !empty($dados['data_devolucao']) &&  !empty($dados['hora_devolucao']) 
         ) {
             $this->model::update($dados);
             echo "<script>alert('Registro alterado com sucesso!')</script>";
