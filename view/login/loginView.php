@@ -17,11 +17,10 @@ $_SESSION['usuario'] = null;
     <title>Faça seu Login</title>
 </head>
 
-<body>
+<body class="container text-white bg-dark">
     <?php
 
     if (!empty($_POST)) {
-        //chama o metodo LOGAR recebendo os dados do usuário através do metodo $_POST
         $objUsuario =  Model::logar($_POST["login"], $_POST['senha']);
         if (!empty($objUsuario)) {
             $_SESSION['usuario'] = $objUsuario;
@@ -33,12 +32,21 @@ $_SESSION['usuario'] = null;
 
     ?>
     <form action="loginView.php" method="POST">
-        <h2>Bem vindo, informe suas credênciais</h2>
-        <label>Login</label>
-        <input type="text" name="login"><br>
-        <label>Senha</label>
-        <input type="password" name="senha"><br>
-        <input type="submit" value="Logar">
+        <h2 class="text-center">Bem vindo, informe suas credênciais</h2>
+
+        <div class="form-group text-center text-white">
+            <label>Login</label>
+            <input class="form-control text-center" type="text" name="login">
+        </div>
+
+        <div class="form-group text-center text-white">
+            <label>Senha</label>
+            <input class="form-control text-center" type="password" name="senha">
+        </div>
+
+        <br>
+
+        <input class="btn btn-success btn-block" type="submit" value="Logar">
     </form>
 
 </body>
