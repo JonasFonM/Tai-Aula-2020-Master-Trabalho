@@ -33,7 +33,7 @@ $objUsuario = $_SESSION['usuario'];
 
 <body class="container-fluid bg-dark">
     
-    <a class="btn btn-danger float-right" href="../home/homeView.php">Sair</a>
+    <a class="btn btn-danger float-right" href="../home/homeView.php">Voltar</a>
     <div class = "container bg-dark text-white">
     
     <h3 class="text-center">Olá <?php echo $objUsuario->nome ?></h3>
