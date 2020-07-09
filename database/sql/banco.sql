@@ -27,13 +27,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `data_nasc` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_cliente_municipio` (`municipio_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.cliente: ~1 rows (aproximadamente)
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` (`id`, `nome`, `telefone`, `cpf`, `email`, `municipio_id`, `data_nasc`) VALUES
-	(63, 'Josias', '99890808', '000-000-000-05', 'josiasiasiasiasias@gmail.com', 3, '1989-08-20');
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.locacao
 CREATE TABLE IF NOT EXISTS `locacao` (
@@ -47,13 +43,9 @@ CREATE TABLE IF NOT EXISTS `locacao` (
   PRIMARY KEY (`id`),
   KEY `FK__cliente` (`cliente_id`),
   KEY `FK_locacao_veiculo` (`veiculo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.locacao: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `locacao` DISABLE KEYS */;
-INSERT INTO `locacao` (`id`, `cliente_id`, `veiculo_id`, `data_retirada`, `hora_retirada`, `data_devolucao`, `hora_devolucao`) VALUES
-	(3, 63, 2, '2019-05-10', '13:51:00', '2020-07-21', '17:21:00');
-/*!40000 ALTER TABLE `locacao` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.multa
 CREATE TABLE IF NOT EXISTS `multa` (
@@ -68,11 +60,9 @@ CREATE TABLE IF NOT EXISTS `multa` (
   KEY `FK__cliente` (`cliente_id`),
   KEY `FK__veiculo` (`veiculo_id`),
   KEY `FK__locacao` (`locacao_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.multa: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `multa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `multa` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.municipio
 CREATE TABLE IF NOT EXISTS `municipio` (
@@ -83,13 +73,7 @@ CREATE TABLE IF NOT EXISTS `municipio` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.municipio: ~3 rows (aproximadamente)
-/*!40000 ALTER TABLE `municipio` DISABLE KEYS */;
-INSERT INTO `municipio` (`id`, `nome`, `uf`, `estado`) VALUES
-	(1, 'Xanxerê', 'SC', 'Santa Catarina'),
-	(2, 'Natal', 'RN', 'Rio Grande do Norte'),
-	(3, 'Chapecó', 'SC', 'Santa Catarina');
-/*!40000 ALTER TABLE `municipio` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -101,11 +85,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.usuario: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`, `ativo`) VALUES
-	(1, 'Jonas', 'Pimba', '123', 1);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+INSERT INTO db_tai_aula_2020.usuario (nome, login, senha, ativo) VALUES ('Jackson', 'admin', 'admin', '1');
+
+
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.veiculo
 CREATE TABLE IF NOT EXISTS `veiculo` (
@@ -119,11 +102,7 @@ CREATE TABLE IF NOT EXISTS `veiculo` (
   KEY `FK_veiculo_cliente` (`cliente_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela db_tai_aula_2020.veiculo: ~1 rows (aproximadamente)
-/*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
-INSERT INTO `veiculo` (`id`, `cliente_id`, `placa`, `tipo_veiculo`, `fabricante`, `modelo`) VALUES
-	(2, 63, 'KEK-5555', 'Automóvel', 'General Motors', 'Celta');
-/*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
+-- Exportação de dados foi desmarcado.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
