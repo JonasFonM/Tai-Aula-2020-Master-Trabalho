@@ -69,8 +69,8 @@ class MultaController
             $this->model = new LocacaoModel();
 
             if (
-                $objLocacao->data_retirada < ($dados['data_multa']) &&
-                $objLocacao2->data_devolucao > ($dados['data_multa'])
+                $objLocacao->data_retirada <= ($dados['data_multa']) &&
+                $objLocacao2->data_devolucao >= ($dados['data_multa'])
             ) {
                 $this->model::update($dados);
 

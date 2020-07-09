@@ -29,7 +29,7 @@ class LocacaoController
             $date = new DateTime( $objCliente->data_nasc );
             $interval = $date->diff( new DateTime( date('Y-m-d') ) ) ->format( '%Y anos' );
 
-     if ( $interval > 18 ) {
+     if ( $interval >= 18 ) {
               
             $this->model::insert($dados);
 
