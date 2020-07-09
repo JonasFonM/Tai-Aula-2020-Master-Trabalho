@@ -69,7 +69,7 @@ verificarLogin();
 
         <div class="form-group">
             <label>Data de Nascimento</label>
-            <input class="form-control" type="text" name="data_nasc" placeholder="AAAA-MM-DD"> 
+            <input class="form-control" type="date" name="data_nasc"> 
         </div>
 
         <div class="form-group">
