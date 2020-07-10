@@ -73,6 +73,11 @@ CREATE TABLE IF NOT EXISTS `municipio` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+INSERT INTO db_tai_aula_2020.municipio (id, nome, uf, estado) VALUES ('1','Xaxim ', 'SC', 'Santa Catarina');
+INSERT INTO db_tai_aula_2020.municipio (id, nome, uf, estado) VALUES ('2', 'Xanxerê', 'SC', 'Santa Catarina');
+INSERT INTO db_tai_aula_2020.municipio (id, nome, uf, estado) VALUES ('3', 'Curitiba', 'PR', 'Paraná');
+INSERT INTO db_tai_aula_2020.municipio (id, nome, uf, estado) VALUES ('4', 'Porto Alegre', 'RS', 'Rio Grande do Sul');
+
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela db_tai_aula_2020.usuario
